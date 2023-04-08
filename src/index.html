@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Переводчик</title>
+  <link rel="stylesheet" href="./source/styles/fonts.css" />
+  <link rel="stylesheet" href="./source/styles/style.css" />
+  <script defer src="./source/scripts/js/main.js"></script>
+</head>
+
+<body scroll="no">
+  <div class="view-menu">
+    <div id="stage-start">
+      <img id="logo-button" class="logo" alt="Лого" />
+    </div>
+    <div id="stage-menu">
+      <div class="translator-wrapper">
+        <p class="translator-title">Текст</p>
+        <div class="translator-row">
+          <select id="lang-from">
+            <option value="en">Английский</option>
+            <option value="ar">Арабский</option>
+            <option value="az">Азербайджанский</option>
+            <option value="hu">Венгерский</option>
+            <option value="el">Греческий</option>
+            <option value="da">Датский</option>
+            <option value="id">Индонезийский</option>
+            <option value="ga">Ирландский</option>
+            <option value="es">Испанский</option>
+            <option value="it">Итальянский</option>
+            <option value="ca">Каталонский</option>
+            <option value="zh">Китайский</option>
+            <option value="ko">Корейский</option>
+            <option value="de">Немецкий</option>
+            <option value="nl">Нидерландский</option>
+            <option value="fa">Персидский</option>
+            <option value="pl">Польский</option>
+            <option value="pt">Португальский</option>
+            <option value="ru" selected>Русский</option>
+            <option value="sk">Словацкий</option>
+            <option value="tr">Турецкий</option>
+            <option value="uk">Украинский</option>
+            <option value="fi">Финский</option>
+            <option value="fr">Французкий</option>
+            <option value="cs">Чешский</option>
+            <option value="sv">Шведский</option>
+            <option value="ja">Японский</option>
+          </select>
+          <div class="arrow">---></div>
+          <select id="lang-to">
+            <option value="en" selected>Английский</option>
+            <option value="ar">Арабский</option>
+            <option value="az">Азербайджанский</option>
+            <option value="hu">Венгерский</option>
+            <option value="el">Греческий</option>
+            <option value="da">Датский</option>
+            <option value="id">Индонезийский</option>
+            <option value="ga">Ирландский</option>
+            <option value="es">Испанский</option>
+            <option value="it">Итальянский</option>
+            <option value="ca">Каталонский</option>
+            <option value="zh">Китайский</option>
+            <option value="ko">Корейский</option>
+            <option value="de">Немецкий</option>
+            <option value="nl">Нидерландский</option>
+            <option value="fa">Персидский</option>
+            <option value="pl">Польский</option>
+            <option value="pt">Португальский</option>
+            <option value="ru">Русский</option>
+            <option value="sk">Словацкий</option>
+            <option value="tr">Турецкий</option>
+            <option value="uk">Украинский</option>
+            <option value="fi">Финский</option>
+            <option value="fr">Французкий</option>
+            <option value="cs">Чешский</option>
+            <option value="sv">Шведский</option>
+            <option value="ja">Японский</option>
+          </select>
+          <br>
+          <textarea id="lang-text-input" placeholder="Введите текст" spellcheck="false"></textarea>
+          <textarea id="lang-text-result" placeholder="Результат" spellcheck="false" readonly></textarea>
+        </div>
+        <button id="lang-translate-btn">Перевести</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

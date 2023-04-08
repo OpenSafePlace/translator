@@ -1,0 +1,32 @@
+{
+  "name": "translator",
+  "productName": "Translator",
+  "version": "1.0.0",
+  "description": "Simple offline translator",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "./src/source/images/icons/scs"
+      }
+    }
+  },
+  "keywords": [],
+  "author": {
+    "name": "Artur Shkadzinski",
+    "email": "real-xihnik@yandex.by"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@electron-forge/cli": "6.0.4",
+    "@electron-forge/maker-deb": "6.0.4",
+    "@electron-forge/maker-rpm": "6.0.4",
+    "@electron-forge/maker-squirrel": "6.0.4",
+    "@electron-forge/maker-zip": "6.0.4",
+    "electron": "22.0.3"
+  }
+}
