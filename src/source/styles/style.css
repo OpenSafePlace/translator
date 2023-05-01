@@ -101,7 +101,7 @@ button:hover {
   margin-top: auto;
   margin-bottom: auto;
   background-color: #ffffff;
-  content: url(../images/scs-black.png);
+  content: url(../images/main-black.png);
 }
 
 .view-menu {
@@ -194,7 +194,7 @@ button:hover {
   }
 
   .logo {
-    content: url(../images/scs-white.png);
+    content: url(../images/main-white.png);
     background-color: #232323;
     border: 2px solid #232323;
   }

@@ -11,7 +11,7 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "icon": "./src/source/images/icons/scs"
+        "icon": "./src/source/images/icons/main"
       }
     }
   },
