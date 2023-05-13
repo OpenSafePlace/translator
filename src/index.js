@@ -1,16 +1,40 @@
 const
-  { app, BrowserWindow, Menu, nativeTheme, ipcMain } = require('electron'),
-  { spawn } = require("child_process"),
+  { app, BrowserWindow, Menu, nativeTheme, ipcMain, Notification } = require('electron'),
+  { exec } = require("child_process"),
   path = require('path'),
   isMac = process.platform === 'darwin',
   darkBackgroundColor = '#3c3c3c',
   lightBackgroundColor = '#ffffff',
   iconPath = __dirname + '/source/images/icons/main.png';
 
+let
+  notify = {
+    shell: {
+      error: {
+        python: {
+          main: null,
+          modules: null,
+          other: null
+        }
+      }
+    }
+  }
 if (process.platform == 'darwin')
   app.dock.setIcon(iconPath);
 
 const init = () => {
+  notify = {
+    shell: {
+      error: {
+        python: {
+          main: new Notification({ title: "Ошибка #1", body: "Не обнаружен 'python3'" }),
+          modules: new Notification({ title: "Ошибка #2", body: "Не обнаружены необходимые модули" }),
+          other: new Notification({ title: "Ошибка #3", body: "Обнаружена неизвестная ошибка" })
+        }
+      }
+    }
+  };
+
   const mainWindow = new BrowserWindow({
     minWidth: 350,
     minHeight: 550,
@@ -103,7 +127,19 @@ app.on('window-all-closed',
   });
 
 ipcMain.handle('text-translate', async (event, data) => {
-    return await new Promise((resolve) => {
-      spawn('python3', [path.join(__dirname, "source/scripts/py/translate.py"), "text-translate", data.langFrom, data.langTo, data.text]).stdout.on('data', (data) => resolve(data.toString()));
-    });
+  return await new Promise((resolve) => {
+    exec(`python3 ${path.join(__dirname, 'source/scripts/py/translate.py')} 'text-translate' '${data.langFrom}' '${data.langTo}' '${data.text}'`,
+      function (error, stdout, stderr) {
+        if (error != null && error.code == 127) {
+          notify.shell.error.python.main.show();
+          resolve("Ошибка #1");
+        } else if (error != null && error.code == 1) {
+          notify.shell.error.python.modules.show();
+          resolve("Ошибка #2");
+        } else if (error != null) {
+          notify.shell.error.python.other.show();
+          resolve("Ошибка #3");
+        } else resolve(stdout);
+      });
   });
+});
